@@ -153,7 +153,7 @@ if __name__ == '__main__':
     # main()
 
     model = UNet().to(device=device)
-    model.load_state_dict(torch.load('diffusion_model_fine_tuned.pth'))
+    model.load_state_dict(torch.load('src/weights/diffusion_model_fine_tuned.pth'))
     
     x = create_image()
     # x = x.cpu().squeeze().permute(1, 2, 0).numpy()
