@@ -139,11 +139,13 @@ def p_sample(x, t):
 
 @torch.no_grad()
 def create_image():
+    images = []
     x = torch.randn(1, 1, 28, 28).to(device)
     
     for i in reversed(range(T)):
         t = torch.tensor([i]).to(device)
         x = p_sample(x, t)
+        images.append(x)
         print(i)
 
     return x
